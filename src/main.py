@@ -2,12 +2,13 @@ import argparse
 import asyncio
 import logging
 import os
+import platform
 
 import dotenv
+import openai
+
 import cua
 import local_computer
-import openai
-import platform
 
 dotenv.load_dotenv()
 

@@ -106,6 +106,7 @@ class Agent:
 		self.tools = {}
 		self.extra_headers = None
 		self.parallel_tool_calls = False
+		self.response = None
 		self.start_task()
 
 	def add_tool(self, tool: dict, func):
@@ -211,8 +212,7 @@ class Agent:
 					raise NotImplementedError(message)
 		if user_message:
 			message = response_input_param.Message(role="user", content=user_message)
-			inputs.append(message)
-		self.response = None
+		self.response = None  # Resetting response before new task
 		wait = 0
 		retry = 10
 		while retry > 0:
