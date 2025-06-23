@@ -212,6 +212,7 @@ class Agent:
 					raise NotImplementedError(message)
 		if user_message:
 			message = response_input_param.Message(role="user", content=user_message)
+			inputs.append(message)
 		self.response = None  # Resetting response before new task
 		wait = 0
 		retry = 10
